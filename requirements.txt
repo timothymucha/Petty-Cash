@@ -1,4 +1,4 @@
 streamlit
 pandas
-StringIO
+xlrd>=2.0.1
 openpyxl
