@@ -98,14 +98,14 @@ def classify_and_rows(row, seq):
             # pay from cash
             ["TRNS", trnstype, date_str, "Cash in Drawer", user, -amt, memo_deliv, docnum, clear],
             # charge to COGS
-            ["SPL",  trnstype, date_str, "COGS:Customer Deliveries", user,  amt, memo_deliv, docnum, clear],
+            ["SPL",  trnstype, date_str, "Customer Deliveries", user,  amt, memo_deliv, docnum, clear],
         ]
 
     # Staff transport (handle 'fare', 'fair', 'transport', common typo 'trasport')
     if any(k in details_n for k in ["fare", "fair", "transport", "trasport"]):
         return [
             ["TRNS", trnstype, date_str, "Cash in Drawer", user, -amt, memo_trans, docnum, clear],
-            ["SPL",  trnstype, date_str, "Expense:Interbranch Transport Cost", user,  amt, memo_trans, docnum, clear],
+            ["SPL",  trnstype, date_str, "Interbranch Transport Cost", user,  amt, memo_trans, docnum, clear],
         ]
 
     # Other purchases -> Accounts Payable (use vendor from Detail as NAME)
@@ -186,5 +186,6 @@ if uploaded:
 
 else:
     st.info("Upload your petty cash file (CSV/XLSX) with columns like: Pay Type, Till No, Transaction Date, Detail, Transacted Amount, User Name.")
+
 
 
