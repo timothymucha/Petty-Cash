@@ -57,8 +57,8 @@ def classify_and_rows(row, seq):
     Always:
       - Bank/cash account: Cash in Drawer
       - Transfer 'Cash Pickup' -> Diamond Trust Bank
-      - Delivery -> COGS:Customer Deliveries
-      - fare/fair/transport/trasport -> Expense:Interbranch Transport Cost
+      - Delivery -> Customer Deliveries
+      - fare/fair/transport/trasport -> Interbranch Transport Cost
       - else -> Accounts Payable
     Amount handling: assumes positive 'Transacted Amount' means cash paid out.
     """
@@ -186,3 +186,4 @@ if uploaded:
 
 else:
     st.info("Upload your petty cash file (CSV/XLSX) with columns like: Pay Type, Till No, Transaction Date, Detail, Transacted Amount, User Name.")
+
