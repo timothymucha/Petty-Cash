@@ -71,7 +71,7 @@ def classify_and_rows(row, seq):
     amt = float(row["transacted amount"])
     amt = abs(amt)  # treat as spend/transfer out
     clear = "N"
-    docnum = f"{till}-{pd.to_datetime(row['transaction date']).strftime('%Y%m%d')}-{seq:03d}"
+    docnum = f"{pd.to_datetime(row['transaction date']).strftime('%Y%m%d')}{seq:03d}"
 
     # Build base memos
     memo_petty = f"Petty cash by {user} for {details_raw} on {date_str}"
@@ -186,4 +186,5 @@ if uploaded:
 
 else:
     st.info("Upload your petty cash file (CSV/XLSX) with columns like: Pay Type, Till No, Transaction Date, Detail, Transacted Amount, User Name.")
+
 
